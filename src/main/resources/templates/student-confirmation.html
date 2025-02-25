@@ -13,5 +13,9 @@
 <p>Last Name: <span th:text="${student.lastName}"></span></p>
 <p>Country: <span th:text="${student.country}"></span></p>
 <p>Favorite Language: <span th:text="${student.favoriteLanguage}"></span></p>
+<p>Favorite Systems:</p>
+<ul>
+    <li th:each="system: ${student.favoriteSystems}" th:text="${system}"></li>
+</ul>
 </body>
 </html>

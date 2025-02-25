@@ -20,6 +20,9 @@ public class StudentController {
     @Value("${favoriteLanguages}")
     private List<String> favoriteLanguages;
 
+    @Value("${favoriteSystems}")
+    private List<String> favoriteSystems;
+
     @Autowired
     public StudentController(CountryProperties countryProperties) {
         this.countryProperties = countryProperties;
@@ -30,6 +33,7 @@ public class StudentController {
         model.addAttribute("student", new Student());
         model.addAttribute("countries", countryProperties.getCountries());
         model.addAttribute("favoriteLanguages", favoriteLanguages);
+        model.addAttribute("favoriteSystems", favoriteSystems);
         return "student-form";
     }
 

@@ -31,7 +31,18 @@
             <ul>
                 <li th:each="tempLanguage: ${favoriteLanguages}">
                     <label>
-                        <input type="radio" name="language" th:field="*{favoriteLanguage}" th:value="${tempLanguage}" th:text="${tempLanguage}">
+                        <input type="radio" name="language" th:field="*{favoriteLanguage}" th:value="${tempLanguage}"
+                               th:text="${tempLanguage}">
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div><span>Favorite OS</span>
+            <ul>
+                <li th:each="tempOS: ${favoriteSystems}">
+                    <label>
+                        <input type="checkbox" name="system" th:field="*{favoriteSystems}" th:value="${tempOS}"
+                               th:text="${tempOS}">
                     </label>
                 </li>
             </ul>
