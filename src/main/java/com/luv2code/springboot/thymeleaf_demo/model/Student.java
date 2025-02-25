@@ -1,15 +1,23 @@
 package com.luv2code.springboot.thymeleaf_demo.model;
 
+import java.util.List;
+
 public class Student {
     private String firstName;
     private String lastName;
+    private Country country;
+    private String favoriteLanguage;
+    private List<String> favoriteSystems;
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, Country country, String favoriteLanguage, List<String> favoriteSystems) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.country = country;
+        this.favoriteLanguage = favoriteLanguage;
+        this.favoriteSystems = favoriteSystems;
     }
 
     public String getFirstName() {
@@ -28,11 +36,38 @@ public class Student {
         this.lastName = lastName;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public String getFavoriteLanguage() {
+        return favoriteLanguage;
+    }
+
+    public void setFavoriteLanguage(String favoriteLanguage) {
+        this.favoriteLanguage = favoriteLanguage;
+    }
+
+    public List<String> getFavoriteSystems() {
+        return favoriteSystems;
+    }
+
+    public void setFavoriteSystems(List<String> favoriteSystems) {
+        this.favoriteSystems = favoriteSystems;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", country=" + country +
+                ", favoriteLanguage='" + favoriteLanguage + '\'' +
+                ", favoriteSystems=" + favoriteSystems +
                 '}';
     }
 }

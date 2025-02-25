@@ -6,14 +6,38 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Student Form</title>
+    <link rel="stylesheet" th:href="@{/css/student-form.css}">
 </head>
 <body>
-    <h1>Student Form</h1>
-    <div>
-        <form th:action="@{/processForm}" method="post">
-            <input type="text" name="studentName" placeholder="What's your name">
-            <button>Submit</button>
-        </form>
-    </div>
+<h1>Student Registration Form</h1>
+<div>
+    <form th:action="@{/processForm}" th:object="${student}" method="post">
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" th:field="*{firstName}">
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" th:field="*{lastName}">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <select name="country" id="country" th:field="*{country}">
+                <option th:each="entry : ${countries}" th:value="${entry.key}" th:text="${entry.value}"/>
+            </select>
+        </div>
+        <div>
+            <span>Favorite Programming Language:</span>
+            <ul>
+                <li th:each="tempLanguage: ${favoriteLanguages}">
+                    <label>
+                        <input type="radio" name="language" th:field="*{favoriteLanguage}" th:value="${tempLanguage}" th:text="${tempLanguage}">
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
 </body>
 </html>
